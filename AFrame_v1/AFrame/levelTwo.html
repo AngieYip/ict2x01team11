@@ -1,0 +1,95 @@
+<html>
+	<head>
+		<script src="https://aframe.io/releases/0.6.0/aframe.min.js"></script>
+		<script src="https://rawgit.com/feiss/aframe-environment-component/master/dist/aframe-environment-component.min.js"></script>
+	</head>
+	<body>
+
+	<a-scene>
+		<!-- ASSETS -->
+		<a-assets>
+			<img id="groundTexture" src="images/floor.webp">
+			<img id="skyTexture" src="images/sky.webp">
+			<a-asset-item id="policeman" src="collada/chr_cop1.dae"></a-asset-item>
+			<a-asset-item id="car" src="collada/veh_car5.dae"></a-asset-item>
+			<a-asset-item id="bus" src="collada/veh_bus.dae"></a-asset-item>
+			<a-asset-item id="tree" src="collada/obj_tree4.dae" height="1000"></a-asset-item>
+		</a-assets>
+
+		<!-- GROUND AND SKY -->
+		<!-- <a-cylinder id="ground" src="#groundTexture" radius="30" height="0.4"></a-cylinder> -->
+		<!-- <a-sky id="background" src="#skyTexture" theta-length="90" radius="30"></a-sky> -->
+		<a-plane position="0 0.5 -4" rotation="-90 0 0" width="4" height="1000" color="#696969"></a-plane>
+		<a-plane position="-7 0.5 -4" rotation="-90 0 0" width="8" height="1000" color="#000000"></a-plane>
+		<a-plane position="-11 0.5 -4" rotation="-90 0 0" width="0.5" height="1000" color="#FF"></a-plane>
+		<a-plane position="-15 0.5 -4" rotation="-90 0 0" width="8" height="1000" color="#000000"></a-plane>
+		<!-- <a-sky color="lightblue"></a-sky> -->
+		<a-entity environment="groundColor:#454545; groundColor2:#454545;"></a-entity>
+
+		<!-- COLLADA MODELS -->   
+
+		<a-collada-model src="#car" position="-4 0.5 -100" rotation="0 0 0">
+			<a-animation attribute="position"
+				dur="40000"
+				fill="forwards"
+				to="-4 0.5 100"
+				repeat="indefinite"
+				>
+			</a-animation>
+		</a-collada-model>
+
+		<!-- Car Opposite Direction -->
+		<a-collada-model src="#car" position="-13 0.5 100" rotation="0 180 0">
+			<a-animation attribute="position"
+				dur="40000"
+				fill="backwards"
+				to="-13 0.5 -100"
+				repeat="indefinite"
+				>
+			</a-animation>
+		</a-collada-model>
+
+		<!-- BUS -->
+		<a-collada-model src="#bus" position="-9 0.5 -150" rotation="0 0 0">
+			<a-animation attribute="position"
+				dur="60000"
+				fill="forwards"
+				to="-9 0.5 150"
+				repeat="indefinite"
+				>
+			</a-animation>
+		</a-collada-model>
+
+		<!-- Bus Opposite Direction -->
+		<a-collada-model src="#bus" position="-16 0.5 150" rotation="0 180 0">
+			<a-animation attribute="position"
+				dur="60000"
+				fill="backwards"
+				to="-16 0.5 -150"
+				repeat="indefinite"
+				>
+			</a-animation>
+		</a-collada-model>
+
+		<!-- POLICEMAN -->
+		<a-collada-model src="#policeman" position="1 0.5 -100" rotation="0 180 0">
+			<a-animation attribute="position"
+				dur="100000"
+				fill="forwards"
+				to="1 0.5 100"
+				repeat="indefinite"
+				>
+			</a-animation>
+		</a-collada-model>
+		<a-collada-model src="#tree" position="5 0.41 -10" rotation="0 0 0" scale="5 5 5">
+			<!-- <a-animation attribute="position"
+				dur="10000"
+				fill="forwards"
+				to="5 0.41 5"
+				>
+			</a-animation> -->
+		</a-collada-model>
+	</a-scene>
+
+	</body>
+</html>
