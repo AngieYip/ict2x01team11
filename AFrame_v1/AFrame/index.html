@@ -25,9 +25,9 @@
 	<!-- COLLADA MODELS -->   
 	<a-collada-model src="#car" position="-4 0.5 -100" rotation="0 0 0">
 		<a-animation attribute="position"
-	  		dur="10000"
+	  		dur="20000"
 	  		fill="forwards"
-	  		to="-4 0.5 5"
+	  		to="-4 0.5 100"
 	  		repeat="indefinite"
 	  		>
   		</a-animation>
@@ -35,18 +35,18 @@
 	<!-- Car Opposite Direction -->
 	<a-collada-model src="#car" position="-13 0.5 100" rotation="0 180 0">
 		<a-animation attribute="position"
-	  		dur="10000"
+	  		dur="20000"
 	  		fill="backwards"
-	  		to="-13 0.5 5"
+	  		to="-13 0.5 -100"
 	  		repeat="indefinite"
 	  		>
   		</a-animation>
 	</a-collada-model>
 	<a-collada-model src="#bus" position="-9 0.5 -150" rotation="0 0 0">
 		<a-animation attribute="position"
-	  		dur="12000"
+	  		dur="25000"
 	  		fill="forwards"
-	  		to="-9 0.5 5"
+	  		to="-9 0.5 150"
 	  		repeat="indefinite"
 	  		>
   		</a-animation>
@@ -54,28 +54,28 @@
 	<!-- Bus Opposite Direction -->
 	<a-collada-model src="#bus" position="-16 0.5 150" rotation="0 180 0">
 		<a-animation attribute="position"
-	  		dur="12000"
+	  		dur="20000"
 	  		fill="backwards"
-	  		to="-16 0.5 -50"
+	  		to="-16 0.5 -150"
 	  		repeat="indefinite"
 	  		>
   		</a-animation>
 	</a-collada-model>
   	<a-collada-model src="#policeman" position="1 0.5 -100" rotation="0 180 0">
   		<a-animation attribute="position"
-	  		dur="17000"
+	  		dur="30000"
 	  		fill="forwards"
-	  		to="1 0.5 5"
+	  		to="1 0.5 100"
 	  		repeat="indefinite"
 	  		>
   		</a-animation>
   	</a-collada-model>
   	<a-collada-model src="#tree" position="5 0.41 -10" rotation="0 0 0" scale="5 5 5">
-  		<a-animation attribute="position"
+  		<!-- <a-animation attribute="position"
 	  		dur="10000"
 	  		fill="forwards"
 	  		to="5 0.41 5"
 	  		>
-  		</a-animation>
+  		</a-animation> -->
   	</a-collada-model>
 </a-scene>
