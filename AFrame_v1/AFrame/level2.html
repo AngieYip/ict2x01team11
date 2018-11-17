@@ -39,21 +39,16 @@
 				</a-camera>
 			</a-entity>
 
-			<!-- PEDESTRIAN LANE -->
-			<!-- <a-plane position="-2 0.5 -4" rotation="-90 0 0" width="2" height="175" color="#696969"></a-plane>
-			<a-image src="#pedestrian" rotation="-90 0 0" position="-2 0.6 -4"></a-image> -->
 			<a-entity gltf-model="#paths" scale="0.05 0.05 0.05" position="0.053 -0.563 -30"></a-entity>
+
+			<!-- PEDESTRIAN LANE -->
 			<a-image src="#pedestrian" scale="2 2 2" rotation="-90 0 0" position="-2.921 0.031 -12.12"></a-image>
-			<a-image src="#cyclist" scale="2 2 2" rotation="-90 0 0" position="2.889 0.031 -11.553"></a-image>
 
 			<!-- PMD LANE -->
-			<!-- <a-plane position="2 0.5 -4" rotation="-90 0 0" width="2" height="175" color="#696969"></a-plane>-->
-			
+			<a-image src="#cyclist" scale="2 2 2" rotation="-90 0 0" position="2.889 0.031 -11.553"></a-image>
+
 			<!-- BACKGROUND -->
-			<!-- <a-entity environment="ground:flat; groundColor:#454545; groundColor2:#454545;"></a-entity> -->
-			<a-sky src="#skyTexture"></a-sky>
-			<a-light type="ambient" color="#445451"></a-light>
-			<a-light type="point" intensity="2" position="2 4 4"></a-light>
+			<a-entity environment="lightPosition:100 1; ground:flat; groundColor:#454545; groundColor2:#454545;"></a-entity>
 		</a-scene>
 	</body>
 </html>
