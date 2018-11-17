@@ -13,6 +13,15 @@
     <!-- Bootstrap core CSS -->
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
+    <!-- jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+    <!-- initialize variables-->
+    <script>
+        var people = 0;
+        var vehicle = 0;
+    </script>
+
     <!-- Custom fonts for this template -->
     <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet">
@@ -29,7 +38,19 @@
         <div class="mx-auto text-center">
           <h1 class="mx-auto my-0 text-uppercase">CycleMyLyfe</h1>
           <h2 class="text-white-50 mx-auto mt-2 mb-5">Welcome SCTF Member!!! </h2>
-          <a href="#about" class="btn btn-primary js-scroll-trigger">Update</a>
+
+          <!-- content -->
+          No. of people : <button id="peoplePlus" class="ui-button ui-widget ui-corner-all">+</button> <label id="lblPeople">0</label> <button id="peopleMinus" class="ui-button ui-widget ui-corner-all">-</button>
+          <br>
+          No. of vehicle: <button id="vehPlus" class="ui-button ui-widget ui-corner-all">+</button> <label id="lblVeh">0</label>  <button id="vehMinus" class="ui-button ui-widget ui-corner-all">-</button>
+          <br>
+          Upload Video  :
+          <div class="custom-file">
+            <input type="file" class="custom-file-input" id="customFile">
+            <label class="custom-file-label" for="customFile">Choose file</label>
+          </div>
+
+          <a href="loginpageModified.html" class="btn btn-primary js-scroll-trigger">Update</a>
         </div>
       </div>
     </header>
@@ -37,6 +58,9 @@
     <!-- Bootstrap core JavaScript -->
     <script src="vendor/jquery/jquery.min.js"></script>
     <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- SCTFpage.js-->
+    <script src="js/SCTFpage.js"></script>
 
     <!-- Plugin JavaScript -->
     <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
