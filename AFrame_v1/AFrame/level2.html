@@ -2,13 +2,18 @@
 <html>
 	<head>
 		<meta charset="utf-8">
-		<title>CycleMyLyfe • Level 2</title>
-		<meta name="description" content="Road Safety • Level 2">
+        <title>CycleMyLyfe • Level 2</title>
+        <meta name="description" content="Road Safety • Level 2">
 		<script src="https://aframe.io/releases/0.8.0/aframe.min.js"></script>
 		<script src="https://rawgit.com/feiss/aframe-environment-component/master/dist/aframe-environment-component.min.js"></script>
 		<script src="js/aframe-dialog-popup-component.js"></script>
 	</head>
 	<body>
+		<script type="text/javascript">
+			var el = document.querySelector('#user_model');
+			console.log(el.getAttribute('position'));
+		</script>
+
 		<a-scene>
 			<!-- ASSETS -->
 			<a-assets>
@@ -26,9 +31,10 @@
 		    </a-entity> -->
 
 		    <!-- USER MODEL -->
-			<a-entity position="0 1.8 -0.5">
+			<a-entity id="user_model" position="0 1.8 -0.5">
 				<a-camera id="cam" user-height="1.8" wasd-controls="acceleration: 100">
-					<a-entity gltf-model="#bicycle" scale="0.001 0.001 0.001" position="0 -0.780 -0.5" rotation="0 180 0"></a-entity>
+					<a-entity id="user_bicycle" gltf-model="#bicycle" scale="0.001 0.001 0.001" position="0 -0.780 -0.5" rotation="0 180 0"></a-entity>
+					<a-entity light="type: point; intensity: 5; distance: 50; decay: 2" position="0 -0.276 -4"></a-entity>
 					<a-sphere raycaster="objects: .collidable; near: 0.2" position="0 -0.9 0" geometry="radius:0.5"></a-sphere>
 					<a-entity raycaster="objects: .collidable; near: 0.2" rotation="0 90 0"></a-entity>
 					<a-entity raycaster="objects: .collidable; near: 0.2" rotation="0 270 0"></a-entity>
