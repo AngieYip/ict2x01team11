@@ -46,12 +46,17 @@
     
     <script>
         function myFunction() {
-                if ( document.getElementById("uname").value === "user" &&  document.getElementById("psw").value === "user"){
+                count = 0
+                if ( document.getElementById("uname").value === "player1" &&  document.getElementById("psw").value === "playerpwd"){
             location.replace("userpageModified.html")
             }
-            else if ( document.getElementById("uname").value === "sctf" &&  document.getElementById("psw").value === "sctf"){
+            else if ( document.getElementById("uname").value === "wearesctf" &&  document.getElementById("psw").value === "sctfpwd"){
             location.replace("SCTFpage.html")
             }
+            else {
+                alert("The username or password you have entered is invalid. Please try again!!!")
+                count++
+                location.replace("loginpage.html")
            
                 
         }      
