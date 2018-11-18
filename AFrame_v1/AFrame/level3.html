@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+        <title>CycleMyLyfe • Level 3</title>
+        <meta name="description" content="Road Safety • Level 3">
+		<script src="https://aframe.io/releases/0.8.0/aframe.min.js"></script>
+		<script src="https://rawgit.com/feiss/aframe-environment-component/master/dist/aframe-environment-component.min.js"></script>
+		<script src="js/aframe-dialog-popup-component.js"></script>
+
+		<!-- ADD THESE SCRIPTS FOR TRAFFIC LIGHT'S ANIMATION -->
+		<script src="https://cdn.rawgit.com/donmccurdy/aframe-extras/v4.1.2/dist/aframe-extras.min.js"></script>
+		<script src="https://rawgit.com/donmccurdy/aframe-extras/master/dist/aframe-extras.loaders.min.js"></script>
+	</head>
+	<body>
+		<a-scene>
+			<!-- ASSETS -->
+			<a-assets>
+		      	<img id="pedestrian" src="images/stickman.png">
+		      	<img id="cyclist" src="images/cyclists.png">
+			    <a-asset-item id="street" src="models/city_1/scene.gltf"></a-asset-item>
+                <a-asset-item id="traffic" src="models/traffic_light/scene.gltf"></a-asset-item>
+			    <a-asset-item id="bicycle" src="models/bicycle/Bike.gltf"></a-asset-item>
+			</a-assets>
+
+		    <!-- USER MODEL -->
+			<a-entity position="0 1.8 -0.5">
+				<a-camera id="cam" user-height="1.8" wasd-controls="acceleration: 100">
+					<a-entity gltf-model="#bicycle" scale="0.001 0.001 0.001" position="0 -0.780 -0.5" rotation="0 180 0"></a-entity>
+					<a-sphere raycaster="objects: .collidable; near: 0.2" position="0 -0.9 0" geometry="radius:0.5"></a-sphere>
+					<a-entity raycaster="objects: .collidable; near: 0.2" rotation="0 90 0"></a-entity>
+					<a-entity raycaster="objects: .collidable; near: 0.2" rotation="0 270 0"></a-entity>
+				</a-camera>
+			</a-entity>
+
+			<!-- STREET ENVIRONMENT -->
+		    <a-entity gltf-model="#street" scale="0.04 0.04 0.04" position="11.5 4.904 7"></a-entity>
+            <a-entity gltf-model="#traffic" scale="0.05 0.05 0.05" position="24.767 0.2 -17.3" rotation="0.4 8.5 1.5" animation-mixer></a-entity>
+
+		    <!-- POLICE CAR -->
+                    
+		</a-scene>
+	</body>
+</html>

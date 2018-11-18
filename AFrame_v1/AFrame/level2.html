@@ -10,8 +10,26 @@
 	</head>
 	<body>
 		<script type="text/javascript">
-			var el = document.querySelector('#user_model');
-			console.log(el.getAttribute('position'));
+			var bicycle_position;
+			document.addEventListener("DOMContentLoaded", function() {
+				lights_element = document.querySelector('a-entity[light]');
+				bicycle_position = document.getElementById('user_bicycle');
+
+				var scene = document.querySelector('a-scene');
+		    	var dialog_element = document.createElement('a-entity');
+		    	scene.appendChild(dialog_element);
+		    	
+			    if (confirm("It's nighttime. Turn on your headlights?")) {
+			    	dialog_element.innerHTML = "<dialog id='dialog'><form method='dialog'><p><label>Good job! You have followed the rules of cycling by turning on your headlights.</label></p><menu><button>Ok</button></menu></form></dialog>";
+			    	
+			    } else {
+			    	dialog_element.innerHTML = "<dialog id='dialog'><form method='dialog'><p><label>Oh no! I hope you understand that cycling on a public road after dark without lights is illegal. Please be careful next time.</label></p><menu><button>Ok</button></menu></form></dialog>";
+			        lights_element.removeAttribute('light');
+			    }
+
+			    var dialog = document.getElementById('dialog');
+		    	dialog.showModal();
+			});
 		</script>
 
 		<a-scene>
@@ -34,7 +52,7 @@
 			<a-entity id="user_model" position="0 1.8 -0.5">
 				<a-camera id="cam" user-height="1.8" wasd-controls="acceleration: 100">
 					<a-entity id="user_bicycle" gltf-model="#bicycle" scale="0.001 0.001 0.001" position="0 -0.780 -0.5" rotation="0 180 0"></a-entity>
-					<a-entity light="type: point; intensity: 5; distance: 50; decay: 2" position="0 -0.276 -4"></a-entity>
+					<a-entity light="type: point; intensity: 5; distance: 50; decay: 2" position="0 -0.276 -4.037"></a-entity>
 					<a-sphere raycaster="objects: .collidable; near: 0.2" position="0 -0.9 0" geometry="radius:0.5"></a-sphere>
 					<a-entity raycaster="objects: .collidable; near: 0.2" rotation="0 90 0"></a-entity>
 					<a-entity raycaster="objects: .collidable; near: 0.2" rotation="0 270 0"></a-entity>

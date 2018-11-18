@@ -13,7 +13,6 @@
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom fonts for this template -->
-    <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
 
@@ -22,21 +21,30 @@
   </head>
   <body id="page-top">
     <script>
-        function myFunction() {
-            count = 0;
-            if (document.getElementById("uname").value == "player1" &&  document.getElementById("psw").value == "123") {
-                location.replace("userpage.html");
-            }
+        var attempts = 3; 
 
-            else if (document.getElementById("uname").value == "wearesctf" &&  document.getElementById("psw").value == "123") {
-                location.replace("SCTFpage.html");
-            }
+        function validate() {
+            var username = document.getElementById("uname").value;
+            var password = document.getElementById("psw").value;
+            if (username == "player" && password == "player123"){
+                alert ("Login successfully!");
+                window.location = "userpage.html";
+                return false;
+            } else if (username == "sctf" && password == "sctf123") {
+                alert("Login successfully!");
+                window.location = "SCTFpage.html";
+            } else {
+                attempts--;
+                alert("You have "+ attempts +" attempts left.");
 
-            else {
-                alert("The username or password you have entered is invalid. Please try again!!!");
-                count++;
+                if (attempts == 0) {
+                    document.getElementById("uname").disabled = true;
+                    document.getElementById("psw").disabled = true;
+                    document.getElementById("login_btn").disabled = true;
+                    return false;
+                }
             }
-        }      
+        }
     </script>
 
     <!-- Header -->
@@ -51,7 +59,7 @@
                 <input type="text" placeholder="Enter Username" id="uname" required>
                 <label for="psw"><b>Password</b></label>
                 <input type="password" placeholder="Enter Password" id="psw" required>
-                <a onclick="myFunction()" class="btn btn-primary js-scroll-trigger">Submit</a>
+                <input type="button" class="btn btn-primary js-scroll-trigger" value="Login" id="login_btn" onclick="validate()"/>
               </div>
             </form>
         </div>

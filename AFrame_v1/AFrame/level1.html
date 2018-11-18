@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+        <title>CycleMyLyfe • Level 1</title>
+        <meta name="description" content="Road Safety • Level 1">
+		<script src="https://aframe.io/releases/0.8.0/aframe.min.js"></script>
+		<script src="https://rawgit.com/feiss/aframe-environment-component/master/dist/aframe-environment-component.min.js"></script>
+
+		<script>
+			AFRAME.registerComponent('collider-check', {
+				dependencies: ['raycaster'],
+				init: function () {
+					this.el.addEventListener('raycaster-intersection', function () {
+				  		console.log('Player hit something!');
+					});
+				}
+			});
+		</script>
+
+		<a-scene collider-check>
+			<!-- ASSETS -->
+			<a-assets>
+				<a-asset-item id="car" src="models/car_1/scene.gltf"></a-asset-item> 
+				<a-asset-item id="woman" src="models/woman/scene.gltf"></a-asset-item>
+				<a-asset-item id="road" src="models/road/model.gltf"></a-asset-item>
+				<a-asset-item id="sidewalk" src="models/sidewalk/scene.gltf"></a-asset-item>
+				<a-asset-item id="bicycle" src="models/bicycle/Bike.gltf"></a-asset-item>
+			</a-assets>
+
+			<!-- USER MODEL -->
+			<a-entity position="0 1.8 0">
+				<a-camera id="cam" user-height="1.8" wasd-controls="acceleration: 100">
+					<a-entity gltf-model="#bicycle" scale="0.001 0.001 0.001" position="0 -0.728 -0.5" rotation="0 180 0"></a-entity>
+					<a-sphere raycaster="objects: .collidable; near: 0.2" position="0 -0.9 0" geometry="radius:0.5"></a-sphere>
+					<a-entity raycaster="objects: .collidable; near: 0.2" rotation="0 90 0"></a-entity>
+					<a-entity raycaster="objects: .collidable; near: 0.2" rotation="0 270 0"></a-entity>
+				</a-camera>
+			</a-entity>
+				
+			<!-- ROADS AND WALKWAY -->
+			<a-entity gltf-model="#sidewalk" scale="0.02 0.02 0.02" position="2.854 0.431 3.429" rotation="0 90 0"></a-entity>
+		  	<a-entity gltf-model="#sidewalk" scale="0.02 0.02 0.02" position="2.854 0.431 42.45" rotation="0 90 0"></a-entity>
+			<a-entity gltf-model="#road" scale="4 4 4" position="-4.926 -3.92 -5.702" rotation="0 0 0"></a-entity>
+			<a-entity gltf-model="#road" scale="4 4 4" position="-4.926 -3.92 17.607" rotation="0 0 0"></a-entity>
+		  	<a-entity gltf-model="#road" scale="4 4 4" position="-4.926 -3.92 40.76" rotation="0 0 0"></a-entity>
+			<a-entity gltf-model="#road" scale="4 4 4" position="-16.143 -3.933 -5.734" rotation="0 0 0"></a-entity>
+			<a-entity gltf-model="#road" scale="4 4 4" position="-16.143 -3.918 17.509" rotation="0 0 0"></a-entity>
+		  	<a-entity gltf-model="#road" scale="4 4 4" position="-16.143 -3.918 40.76" rotation="0 0 0"></a-entity>
+
+		  	<!--Buildings -->
+		  	<!-- <a-entity gltf-model="#old_building" position="-20 -3.918 40.76"></a-entity> -->
+
+			<!-- GROUND AND SKY -->
+			<a-entity environment="ground: flat; groundColor:#454545; groundColor2:#454545;"></a-entity>
+
+			<!--Add in 360degree image -->
+			<!-- <a-scene>
+			<a-assets>
+			  <img id="sky" src="https://cdn.glitch.com/a6a8c624-61c4-4134-932b-21f7e7eb4455%2Fbackground.jpg?1542257727833">
+			</a-assets>
+			<a-sky src="#sky"></a-sky>
+			</a-scene> -->
+
+			<!-- CAR -->
+			<a-entity gltf-model="#car" scale="0.02 0.02 0.02" position="-4 0.5 -18.960" rotation="0 0 0">
+				<a-animation attribute="position"
+			  		dur="10000"
+			  		fill="forwards"
+			  		to="-4 0.5 50.686"
+			  		repeat="indefinite"
+			  		>
+		  		</a-animation>
+		  	</a-entity>
+
+			<!-- CAR OPPOSITE DIRECTION -->
+			<a-entity gltf-model="#car" scale="0.02 0.02 0.02" position="-16 0.5 57.654" rotation="0 180 0">
+				<a-animation attribute="position"
+			  		dur="10000"
+			  		fill="backwards"
+			  		to="-16 0.5 -12.967"
+			  		repeat="indefinite"
+			  		>
+		  		</a-animation>
+			</a-entity>
+
+			<!-- WOMAN -->
+			<a-entity class="collidable" gltf-model="#woman" scale="0.011 0.011 0.011" geometry="primitive: box;" position="1 0.5 -18.960" rotation="0 0 0">
+				<a-animation attribute="position"
+			  		dur="22000"
+			  		fill="forwards"
+			  		to="1 0.5 50.686"
+			  		repeat="indefinite"
+			  		>
+		  		</a-animation>
+			</a-entity>
+		</a-scene>

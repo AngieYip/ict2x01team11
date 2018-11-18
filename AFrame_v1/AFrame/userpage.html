@@ -11,9 +11,7 @@
     <title>Welcome to CycleMyLyfe Application</title>
 
     <!-- Bootstrap core CSS -->
-    <!--<link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">-->
-
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom fonts for this template -->
     <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet">
@@ -30,26 +28,25 @@
       <div class="container d-flex h-100 align-items-center">
         <div class="mx-auto text-center">
           <h1 class="mx-auto my-0 text-uppercase">CycleMyLyfe</h1>
-          <h2 class="text-white-50 mx-auto mt-2 mb-5">Welcome Player!!! </h2>
-          <a href="#about" class="btn btn-primary js-scroll-trigger">Instructions</a>
-		  <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Select Level
-			<span class="caret"></span></button>
-				<ul class="dropdown-menu">
-				  <li><a href="index.html">Level 1</a></li>
-				  <li><a href="level2.html">Level 2</a></li>
-				  <li><a href="level3.html">Level 3</a></li>
-                  <li><a href="level4.html">Level 4</a></li>
-                  <li><a href="level5.html">Level 5</a></li>
-				</ul>
-          <a href="#about" onclick="myFunction()" class="btn btn-primary js-scroll-trigger">Play Game</a>
-        </div>
-      </div>
+          <h2 class="text-white-50 mx-auto mt-2 mb-5">Welcome Player! </h2>
+          <input type="button" class="btn btn-primary js-scroll-trigger" value="Rules & Regulations" id="rules_btn" onclick="">
+    		  <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Select Level</button>
+    				<ul class="dropdown-menu">
+    				  <li class="dropdown-item"><a href="level1.html">Level 1</a></li>
+    				  <li class="dropdown-item"><a href="level2.html">Level 2</a></li>
+    				  <li class="dropdown-item"><a href="level3.html">Level 3</a></li>
+              <li class="dropdown-item"><a href="level4.html">Level 4</a></li>
+              <li class="dropdown-item"><a href="level5.html">Level 5</a></li>
+    				</ul>
+              <input type="button" class="btn btn-primary js-scroll-trigger" value="Play Game" id="play_btn" onclick="play_game()">
+            </div>
+          </div>
     </header>
     
     <script>    
-        function myFunction() {
-        location.replace("index.html")
-    }
+        function play_game() {
+          location.replace("level1.html")
+        }
     </script>
 
     <!-- Bootstrap core JavaScript -->
