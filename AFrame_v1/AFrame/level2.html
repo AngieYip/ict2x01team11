@@ -20,10 +20,10 @@
 		    	scene.appendChild(dialog_element);
 		    	
 			    if (confirm("It's nighttime. Turn on your headlights?")) {
-			    	dialog_element.innerHTML = "<dialog id='dialog'><form method='dialog'><p><label>Good job! You have followed the rules of cycling by turning on your headlights.</label></p><menu><button>Ok</button></menu></form></dialog>";
+			    	dialog_element.innerHTML = "<dialog id='dialog'><form method='dialog' style='width:520px;'><p><label>Good job! You have followed the rules of cycling by turning on your headlights.</label></p><menu><button>Ok</button></menu></form></dialog>";
 			    	
 			    } else {
-			    	dialog_element.innerHTML = "<dialog id='dialog'><form method='dialog'><p><label>Oh no! I hope you understand that cycling on a public road after dark without lights is illegal. Please be careful next time.</label></p><menu><button>Ok</button></menu></form></dialog>";
+			    	dialog_element.innerHTML = "<dialog id='dialog'><form method='dialog' style='width:520px;'><p><label>Oh no! I hope you understand that cycling on a public road after dark without lights is illegal. Not only that, it is dangerous for both you and other pedestrians. Please be careful next time.</label></p><menu><button>Ok</button></menu></form></dialog>";
 			        lights_element.removeAttribute('light');
 			    }
 
