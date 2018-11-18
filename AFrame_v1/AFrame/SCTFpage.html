@@ -21,7 +21,7 @@
     <!-- initialize variables-->
     <script type="text/javascript">
         $(document).ready(function() {
-          var quantitiy = 0;
+          var quantity = quantity2 = 0;
              $('.quantity-right-plus').click(function(e) {
                   e.preventDefault();
                   var quantity = parseInt($('#quantity').val());
@@ -33,6 +33,20 @@
                   var quantity = parseInt($('#quantity').val());
                   if (quantity > 0) {
                     $('#quantity').val(quantity - 1);
+                  }
+              });
+
+               $('.quantity-right-plus2').click(function(e) {
+                  e.preventDefault();
+                  var quantity2 = parseInt($('#quantity2').val());
+                  $('#quantity2').val(quantity2 + 1);
+              });
+
+               $('.quantity-left-minus2').click(function(e) {
+                  e.preventDefault();
+                  var quantity2 = parseInt($('#quantity2').val());
+                  if (quantity2 > 0) {
+                    $('#quantity2').val(quantity2 - 1);
                   }
               });
         });
@@ -79,24 +93,24 @@
           <div class="row">
             <div class="col-md-6">
               <div class="input-group">
-              <span class="input-group-btn">
-                  <button type="button" class="quantity-left-minus btn btn-danger btn-number"  data-type="minus" data-field="">-</button>
-              </span>
-              <input type="text" id="quantity" name="quantity" class="form-control input-number" value="2" min="1" max="100" style="height:59px; text-align:center;">
-              <span class="input-group-btn">
-                  <button type="button" class="quantity-right-plus btn btn-success btn-number" data-type="plus" data-field="">+</button>
-              </span>
+                <span class="input-group-btn">
+                    <button type="button" class="quantity-left-minus btn btn-danger btn-number"  data-type="minus" data-field="">-</button>
+                </span>
+                <input type="text" id="quantity" name="quantity" class="form-control input-number" value="2" min="1" max="100" style="height:59px; text-align:center;">
+                <span class="input-group-btn">
+                    <button type="button" class="quantity-right-plus btn btn-success btn-number" data-type="plus" data-field="">+</button>
+                </span>
               </div>
             </div>
             <div class="col-md-6">
               <div class="input-group">
-              <span class="input-group-btn">
-                  <button type="button" class="quantity-left-minus btn btn-danger btn-number"  data-type="minus" data-field="">-</button>
-              </span>
-              <input type="text" id="quantity" name="quantity" class="form-control input-number" value="1" min="1" max="100" style="height:59px; text-align:center;">
-              <span class="input-group-btn">
-                  <button type="button" class="quantity-right-plus btn btn-success btn-number" data-type="plus" data-field="">+</button>
-              </span>
+                <span class="input-group-btn">
+                    <button type="button" class="quantity-left-minus2 btn btn-danger btn-number" data-type="minus" data-field="">-</button>
+                </span>
+                <input type="text" id="quantity2" name="quantity2" class="form-control input-number" value="1" min="1" max="100" style="height:59px; text-align:center;">
+                <span class="input-group-btn">
+                    <button type="button" class="quantity-right-plus2 btn btn-success btn-number" data-type="plus" data-field="">+</button>
+                </span>
               </div>
             </div>
             <div class="col-md-12">
