@@ -139,7 +139,7 @@ AFRAME.registerComponent('dialog-popup', {
     },
     openIconColor: {
       type: 'string',
-      default: 'white'
+      default: 'red'
     },
     closeIconImage: {
       type: 'asset',
@@ -151,7 +151,7 @@ AFRAME.registerComponent('dialog-popup', {
     },
     closeIconColor: {
       type: 'string',
-      default: 'white'
+      default: 'red'
     },
     image: {
       type: 'string',
@@ -167,11 +167,11 @@ AFRAME.registerComponent('dialog-popup', {
     },
     dialogBoxWidth: {
       type: 'number',
-      default: 4
+      default: 8
     },
     dialogBoxHeight: {
       type: 'number',
-      default: 4
+      default: 8
     },
     dialogBoxColor: {
       type: 'string',
@@ -179,7 +179,7 @@ AFRAME.registerComponent('dialog-popup', {
     },
     dialogBoxPadding: {
       type: 'number',
-      default: 0.2
+      default: 0.6
     }
   },
   multiple: true,
@@ -195,7 +195,7 @@ AFRAME.registerComponent('dialog-popup', {
    * Spawns the entities required to support this dialog.
    */
   init: function init() {
-    this.cameraEl = document.querySelector('[camera]');
+    this.cameraEl = document.querySelector('#cam');
     this.spawnEntities();
     this.el.emit('loaded');
   },
