@@ -18,6 +18,10 @@
 
     <!-- Custom styles for this template -->
     <link href="css/grayscale.min.css" rel="stylesheet">
+
+    <!-- SESSION  -->
+    <script src="js/session.js"></script>
+
   </head>
   <body id="page-top">
     <script>
@@ -27,11 +31,14 @@
             var username = document.getElementById("uname").value;
             var password = document.getElementById("psw").value;
             if (username == "player" && password == "player123"){
-                alert ("Login successfully!");
+                // Session.set(username, "player");
+                sessionStorage.setItem("username", "player");
+                alert("Login successfully!");
                 window.location = "userpage.html";
                 return false;
             } else if (username == "sctf" && password == "sctf123") {
-                alert("Login successfully!");
+                sessionStorage.setItem("username", "sctf");
+                alert(sessionStorage.getItem("username"));
                 window.location = "SCTFpage.html";
             } else {
                 attempts--;

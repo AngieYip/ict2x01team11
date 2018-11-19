@@ -10,10 +10,10 @@
 	</head>
 	<body>
 		<script type="text/javascript">
-			var bicycle_position;
 			document.addEventListener("DOMContentLoaded", function() {
 				lights_element = document.querySelector('a-entity[light]');
-				bicycle_position = document.getElementById('user_bicycle');
+				user_model = document.getElementById('user_model');
+				camera = document.getElementById('a-camera');
 
 				var scene = document.querySelector('a-scene');
 		    	var dialog_element = document.createElement('a-entity');
@@ -30,6 +30,14 @@
 			    var dialog = document.getElementById('dialog');
 		    	dialog.showModal();
 			});
+
+			AFRAME.registerComponent('listener', {
+			  tick: function () {
+			  	var user_pos = this.el.getAttribute('position');
+			    console.log(user_pos);
+			  }
+			});
+
 		</script>
 
 		<a-scene>
@@ -38,7 +46,9 @@
 		      	<img id="pedestrian" src="images/stickman.png">
 		      	<img id="cyclist" src="images/cyclists.png">
 				<a-asset-item id="paths" src="models/paths/CUPIC_ROAD.gltf"></a-asset-item>
+				<a-asset-item id="park" src="models/park/scene.gltf"></a-asset-item>
 			    <a-asset-item id="bicycle" src="models/bicycle/Bike.gltf"></a-asset-item>
+			    <a-asset-item id="guy" src="models/guy/patrick.gltf"></a-asset-item>
 			</a-assets>
 
 			<!-- DIALOG -->
@@ -49,26 +59,36 @@
 		    </a-entity> -->
 
 		    <!-- USER MODEL -->
-			<a-entity id="user_model" position="0 1.8 -0.5">
-				<a-camera id="cam" user-height="1.8" wasd-controls="acceleration: 100">
+			<a-entity id="user_model" position="0 1.8 -3.842" rotation="0 90 0">
+				<a-camera listener id="cam" user-height="1.8" wasd-controls="acceleration: 100">
 					<a-entity id="user_bicycle" gltf-model="#bicycle" scale="0.001 0.001 0.001" position="0 -0.780 -0.5" rotation="0 180 0"></a-entity>
-					<a-entity light="type: point; intensity: 5; distance: 50; decay: 2" position="0 -0.276 -4.037"></a-entity>
+					<a-entity light="type: spot; intensity: 20; distance: 20; decay: 2" position="0 -0.276 -0.986"></a-entity>
 					<a-sphere raycaster="objects: .collidable; near: 0.2" position="0 -0.9 0" geometry="radius:0.5"></a-sphere>
 					<a-entity raycaster="objects: .collidable; near: 0.2" rotation="0 90 0"></a-entity>
 					<a-entity raycaster="objects: .collidable; near: 0.2" rotation="0 270 0"></a-entity>
 				</a-camera>
 			</a-entity>
 
-			<a-entity gltf-model="#paths" scale="0.05 0.05 0.05" position="0.053 -0.563 -30"></a-entity>
+			<!-- ENVIRONMENT -->
+			<a-entity gltf-model="#park" scale="1 1 1" position="-14.871 0.514 -4.272"></a-entity>
+
+			<!-- <a-entity gltf-model="#paths" scale="0.05 0.05 0.05" position="0.053 -0.563 -30"></a-entity> -->
 
 			<!-- PEDESTRIAN LANE -->
-			<a-image src="#pedestrian" scale="2 2 2" rotation="-90 0 0" position="-2.921 0.031 -12.12"></a-image>
+			<!-- <a-image src="#pedestrian" scale="2 2 2" rotation="-90 0 0" position="-2.921 0.031 -12.12"></a-image> -->
 
 			<!-- PMD LANE -->
-			<a-image src="#cyclist" scale="2 2 2" rotation="-90 0 0" position="2.889 0.031 -11.553"></a-image>
+			<!-- <a-image src="#cyclist" scale="2 2 2" rotation="-90 0 0" position="2.889 0.031 -11.553"></a-image> -->
 
 			<!-- BACKGROUND -->
 			<a-entity environment="lightPosition:100 1; ground:flat; groundColor:#454545; groundColor2:#454545;"></a-entity>
+
+			<!-- TWO MEN -->
+			<a-entity gltf-model="#guy" scale="0.02 0.02 0.02" position="-22.373 1.055 -6.402" rotation="90 0 0"></a-entity>
+			<a-entity gltf-model="#guy" scale="0.02 0.02 0.02" position="-22.337 1.055 -5.720" rotation="90 180 0"></a-entity>
+
+			<!-- BANNER -->
+			<a-text value="Be careful of your speed near pedestrians. Especially those back-facing you." size="8" position="-22.312 2.207 -5.058" width="10" color="white" rotation="0 90 0" scale="0.3 0.3 0.3"></a-text>	
 		</a-scene>
 	</body>
 </html>

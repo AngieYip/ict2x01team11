@@ -20,6 +20,10 @@
 
     <!-- Custom styles for this template -->
     <link href="css/grayscale.min.css" rel="stylesheet">
+
+    <!-- SESSION  -->
+    <!-- <script src="js/session.js"></script> -->
+
   </head>
   <body id="page-top">
 
@@ -28,7 +32,7 @@
       <div class="container d-flex h-100 align-items-center">
         <div class="mx-auto text-center">
           <h1 class="mx-auto my-0 text-uppercase">CycleMyLyfe</h1>
-          <h2 class="text-white-50 mx-auto mt-2 mb-5">Welcome Player! </h2>
+          <h2 class="text-white-50 mx-auto mt-2 mb-5">Welcome Player!</h2>
           <input type="button" class="btn btn-primary js-scroll-trigger" value="Rules & Regulations" id="rules_btn" onclick="">
     		  <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Select Level</button>
     				<ul class="dropdown-menu">
@@ -43,7 +47,18 @@
           </div>
     </header>
     
-    <script>    
+    <script type="text/javascript">  
+        window.onload = validate_session();
+        function validate_session() {
+          if (sessionStorage.getItem("username") == "sctf") {
+            location.replace("SCTFpage.html");
+          }
+
+          else if (sessionStorage.getItem("username") != "player") {
+            location.replace("loginpage.html");
+          }
+        }
+
         function play_game() {
           location.replace("level1.html")
         }

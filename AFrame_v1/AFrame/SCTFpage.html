@@ -12,7 +12,6 @@
 
     <!-- Bootstrap core CSS -->
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    <link href="vendor/bootstrap/css/style.css" rel="stylesheet">
     <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
 
     <!-- jQuery -->
@@ -20,6 +19,17 @@
 
     <!-- initialize variables-->
     <script type="text/javascript">
+        window.onload = validate_session();
+        function validate_session() {
+          if (sessionStorage.getItem("username") == "player") {
+            location.replace("userpage.html");
+          }
+
+          else if (sessionStorage.getItem("username") != "sctf") {
+            location.replace("loginpage.html");
+          }
+        }
+        
         $(document).ready(function() {
           var quantity = quantity2 = 0;
              $('.quantity-right-plus').click(function(e) {
@@ -143,9 +153,6 @@
 
     <!-- Plugin JavaScript -->
     <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
-
-    <!-- Custom scripts for this template -->
-    <script src="js/grayscale.min.js"></script>
 
   </body>
 </html>
